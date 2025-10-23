@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio práctico de JavaScript</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    #resultado {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejercicio práctico de JavaScript</h1>
+  <p id="resultado"></p>
+
+  <script>
+    let name = prompt("Introduzca su nombre:");
+    let nota1 = parseFloat(prompt("Digite la nota 1 (0.0 - 5.0):"));
+    let nota2 = parseFloat(prompt("Digite la nota 2 (0.0 - 5.0):"));
+    let nota3 = parseFloat(prompt("Digite la nota 3 (0.0 - 5.0):"));
+
+    let sumnotas = nota1 + nota2 + nota3;
+    let promedio = sumnotas / 3;
+    let resultado = document.getElementById("resultado");
+
+    if (isNaN(promedio)) {
+      resultado.textContent = "Alguna nota no es válida ";
+      resultado.style.color = "black";
+    } else if (promedio < 2.0) {
+      resultado.textContent = name + ", su nota promedio es " + promedio + ". Ha reprobado ";
+      resultado.style.color = "red";
+    } else if (promedio >= 2.0 && promedio < 2.9) {
+      resultado.textContent = name + ", su nota promedio es " + promedio + ". Debe presentar recuperación ";
+      resultado.style.color = "orange";
+    } else if (promedio >= 2.9 && promedio <= 3.9) {
+      resultado.textContent = name + ", su nota promedio es " + promedio + ". Aprobado ";
+      resultado.style.color = "green";
+    } else if (promedio > 3.9 && promedio <= 5.0) {
+      resultado.textContent = name + ", su nota promedio es " + promedio + ". Aprobado con honores ";
+      resultado.style.color = "green";
+    } else {
+      resultado.textContent = "Nota inválida ";
+      resultado.style.color = "black";
+    }
+  </script>
+</body>
+</html>
